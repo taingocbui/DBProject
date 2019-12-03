@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Green Business Search</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/search.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<% include partials/header.ejs %>
+			</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<header>
+						<!-- SEARCH -->
+						<form id="searchbar" method="post" action="/search/query">
+						    <div class="row gtr-uniform gtr-50">
+						        <div class="col-9 col-12-mobilep">
+						            <input type="text" name="query" id="query" value="" placeholder="Search by name or location..." />
+						        </div>
+						        <div class="col-3 col-12-mobilep">
+						            <input type="submit" value="Search" class="fit" />
+						        </div>
+						    </div>
+						</form>
+
+						<!-- BROWSE BY ...
+						<div class="col-4 col-12-narrower">
+							<input type="checkbox" id="filter-1" name="filter">
+							<label for="filter-1">lorem</label>
+							<input type="checkbox" id="filter-2" name="filter">
+							<label for="filter-2">ipsum</label>
+							<input type="checkbox" id="filter-3" name="filter">
+							<label for="filter-3">dolor</label>
+							<input type="checkbox" id="filter-4" name="filter">
+							<label for="filter-4">sit</label>
+							<input type="checkbox" id="filter-5" name="filter">
+							<label for="filter-5">amet</label>
+						</div>
+						-->
+					</header>
+
+					<div class="row">
+						<div class="col-12">
+
+							<!-- Table -->
+								<section class="box">
+									<div class="table-wrapper">
+										<table>
+											<tbody>
+												<% if(businesses.length == 0){ %>
+													<h3>No results found.</h3>
+													<p>Sorry, we couldn't find anything that matches your search.</p>
+												<% }
+
+												else{
+												    businesses.forEach(function(business){ %>
+												        <tr>
+															<td><span class="image fit">
+																<a href="/business/<%=business.BUS_NAME%>"> <img src="/logo/<%=business.BUS_LOGO%>" alt="" /> </a></span>
+															</td>
+
+															<td> <%=business.BUS_CATEGORY%> <br>
+																<h4><a href="/business/<%=business.BUS_NAME%>"><%=business.BUS_NAME%></h4></td>
+
+															<td><%=business.BUS_ADDRESS%><br>
+																<%=business.BUS_CITY%>, HI <%=business.BUS_ZIP%> </td>
+
+															<td><%=business.BUS_CONTACT%></td>
+														</tr>
+												    <% });
+												} %>
+											</tbody>
+										</table>
+									</div>
+
+									<span class="image featured"><img src="/images/leaf.png" alt="" /></span>
+								</section>
+							</div>
+						</div>
+
+				</section>
+
+				<!-- Footer -->
+				<% include partials/footer.ejs %>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.dropotron.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>

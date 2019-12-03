@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title><%=business.name%> | Green Business Search</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/business.css" />
+	</head>
+	<body class="landing is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<% include partials/header.ejs %>
+			</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2><%=business.name%></h2>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<div class="smallmap">
+									<iframe id="gmap_canvas"
+											src="https://maps.google.com/maps?q=<%=business.name%> <%=business.street%>&t=&z=13&ie=UTF8&iwloc=&output=embed">
+									</iframe>
+								</div>
+								<h4><%=business.street%>, <%=business.city%> HI <%=business.zip%></h4>
+								<h4><%=business.phoneNumber%></h4>
+							</section>
+							<section>
+								<span class="image fit"><img src="/logo/<%=business.photo%>" alt="" /></span>
+								<p><%=business.description%></p>
+							</section>
+						</div>
+					</section>
+					
+					<section class="box special">
+						<header class="major">
+							<h2>CERTIFICATE</h2>
+							<br>
+							<div class = "pdfviewer">
+								<iframe src="/press-package/<%=business.pdf%>"></iframe>
+							</div>
+
+							
+						</header>
+					</section>
+					
+				</section>
+
+				<!-- Footer -->
+				<% include partials/footer.ejs %>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.dropotron.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>
