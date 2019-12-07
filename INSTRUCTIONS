@@ -1,11 +1,13 @@
 To be able to run GreenBusiness app, please follow the following steps:
 1. Pull all data from Github using the following link: https://github.com/taingocbui/DBProject.git
 2. Install NodeJS in your machine. Please follow the following link to install NodeJS using package manager: https://nodejs.org/en/download/package-manager/ 
-3. In terminal, install the following dependencies in NodeJS using Terminal: npm install <dependency_names>
+3. In terminal, install the following dependencies in NodeJS using Terminal: npm install --save <dependency_names>
     body-parser
     ejs
     express
     mysql
+    nodemon
+    
 4. In the working directory, where all files are pulled from Github, type in Terminal
     node app
 5. Open a browser, direct to http://localhost:3000/
